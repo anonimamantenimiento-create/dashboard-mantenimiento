@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía de Interpretación del Dashboard V2</title>
+
+  <!-- ==========================================
+       1. ESTILOS CSS Y PALETA DE COLORES
+       ========================================== -->
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+
+      /* Colores semáforo corporativo */
+      --green: #10b981;
+      --yellow: #f59e0b; /* Ámbar / Insuficiente */
+      --red: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* HEADER Y CABECERA */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(6px);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    /* CONTENEDOR PRINCIPAL */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* TARJETA DE BIENVENIDA / HERO */
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .hero-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    /* ACORDEONES INTERACTIVOS */
+    .acc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.15s ease;
+      user-select: none;
+    }
+
+    .acc:hover {
+      background: #f1f5f9;
+    }
+
+    .content {
+      display: none;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: none;
+      padding: 16px;
+      border-radius: 0 0 12px 12px;
+      line-height: 1.6;
+    }
+
+    /* CUADROS DE EJEMPLO */
+    .example {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: 10px;
+      white-space: pre-line;
+      font-size: 0.9rem;
+    }
+
+    /* CLASES DE TEXTO EN COLOR */
+    .green {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .yellow {
+      color: var(--yellow);
+      font-weight: 700;
+    }
+
+    .red {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+
+    small {
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================
+       2. CABECERA
+       ========================================== -->
+  <header>
+    <h1>📘 Guía de Interpretación del Dashboard</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- ==========================================
+         3. OBJETIVO DEL DASHBOARD (HERO)
+         ========================================== -->
+    <div class="hero">
+      <div class="hero-title">
+        Objetivo del Dashboard
+      </div>
+      Este dashboard fue desarrollado para facilitar el seguimiento de los principales riesgos de mantenimiento con potencial impacto sobre la continuidad operativa de las sucursales.
+      <br><br>
+      La herramienta concentra el análisis en tres rubros considerados críticos para la operación:
+      <ul>
+        <li>❄️ Frío Alimentario</li>
+        <li>⚡ Instalaciones Eléctricas</li>
+        <li>🔋 Grupos Electrógenos</li>
+      </ul>
+    </div>
+
+    <!-- ==========================================
+         4. ACORDEONES EXPLICATIVOS
+         ========================================== -->
+
+    <!-- SECCIÓN: RUBROS INCLUIDOS -->
+    <div class="acc">📌 Rubros incluidos <span>▶</span></div>
+    <div class="content">
+      El dashboard pone foco exclusivamente en aquellos rubros que presentan mayor potencial de impacto sobre la continuidad operativa:
+      <ul>
+        <li>❄️ Frío Alimentario</li>
+        <li>⚡ Instalaciones Eléctricas</li>
+        <li>🔋 Grupos Electrógenos</li>
+      </ul>
+      Los indicadores correspondientes al resto de los programas de mantenimiento continúan siendo monitoreados y publicados mensualmente en SharePoint Infraestructura 3.0.
+    </div>
+
+    <!-- SECCIÓN: CUMPLE -->
+    <div class="acc">🟩 ¿Qué significa Cumple? <span>▶</span></div>
+    <div class="content">
+      Se considera que una sucursal cumple únicamente cuando alcanza un nivel de cumplimiento igual o superior al 80% en forma <strong>simultánea en los tres rubros críticos:</strong>
+      <ul>
+        <li>✅ Frío Alimentario ≥ 80%</li>
+        <li>✅ Instalaciones Eléctricas ≥ 80%</li>
+        <li>✅ Grupos Electrógenos ≥ 80%</li>
+      </ul>
+
+      <div class="example">
+✅ Ejemplo de sucursal que CUMPLE:
+
+Frío Alimentario: 85%
+Instalaciones Eléctricas: 92%
+Grupos Electrógenos: 81%
+
+Resultado final: CUMPLE (supera el 80% en los 3 rubros)
+      </div>
+
+      <div class="example">
+❌ Ejemplo de sucursal que NO CUMPLE:
+
+Frío Alimentario: 85%
+Instalaciones Eléctricas: 92%
+Grupos Electrógenos: 65%
+
+Resultado final: NO CUMPLE (Grupos Electrógenos no alcanzó el 80%)
+      </div>
+    </div>
+
+    <!-- SECCIÓN: INSUFICIENTE -->
+    <div class="acc">🟨 ¿Qué significa Insuficiente? <span>▶</span></div>
+    <div class="content">
+      Corresponde a sucursales que no alcanzan el objetivo de cumplimiento establecido (80%), pero que mantienen valores iguales o superiores al 60% en todos los rubros críticos.
+      <br><br>
+      Estas sucursales requieren seguimiento y acciones de mejora, aunque no presentan una condición crítica inmediata.
+
+      <div class="example">
+Frío Alimentario: 72%
+Instalaciones Eléctricas: 68%
+Grupos Electrógenos: 79%
+
+Resultado: INSUFICIENTE (todos los rubros están entre 60% y 79%)
+      </div>
+    </div>
+
+    <!-- SECCIÓN: CRÍTICA -->
+    <div class="acc">🟥 ¿Qué significa Crítica? <span>▶</span></div>
+    <div class="content">
+      Corresponde a sucursales que presentan un nivel de cumplimiento inferior al 60% en al menos uno de los tres rubros críticos:
+      <ul>
+        <li>❄️ Frío Alimentario</li>
+        <li>⚡ Instalaciones Eléctricas</li>
+        <li>🔋 Grupos Electrógenos</li>
+      </ul>
+
+      <div class="example">
+Frío Alimentario: 58%
+Instalaciones Eléctricas: 87%
+Grupos Electrógenos: 92%
+
+Resultado: CRÍTICA (Frío Alimentario está por debajo del 60%)
+      </div>
+    </div>
+
+    <!-- SECCIÓN: BARRA DE ESTADO -->
+    <div class="acc">📊 ¿Cómo interpretar la barra de estado? <span>▶</span></div>
+    <div class="content">
+      Cada segmento de la barra representa una sucursal de la zona.
+
+      <div class="example">
+🟩 Verde = Cumple (≥ 80%)
+
+🟨 Ámbar = Insuficiente (60% - 79%)
+
+🟥 Rojo = Crítica (&lt; 60%)
+      </div>
+      La barra permite identificar rápidamente la situación general de la zona y dónde concentrar la gestión.
+    </div>
+
+    <!-- SECCIÓN: TENDENCIA -->
+    <div class="acc">📈 ¿Qué significa la Tendencia? <span>▶</span></div>
+    <div class="content">
+      La tendencia compara el resultado actual contra el período anterior:
+
+      <div class="example">
+↑ MEJORA SIGNIFICATIVA
++3 sucursales vs Jul
+      </div>
+
+      <div class="example">
+↔ ESTABLE
+sin cambios
+      </div>
+
+      <div class="example">
+↓ EMPEORA
+-2 sucursales vs Jul
+      </div>
+    </div>
+
+    <!-- SECCIÓN: CRÍTICOS -->
+    <div class="acc">🚨 ¿Qué muestran los Críticos? <span>▶</span></div>
+    <div class="content">
+      Presenta las sucursales en condición crítica y los rubros afectados:
+
+      <div class="example">
+Suc 161 → IE 40%
+      </div>
+
+      <strong>Interpretación:</strong>
+      <ul>
+        <li>Sucursal: 161</li>
+        <li>Rubro afectado: Instalaciones Eléctricas (IE)</li>
+        <li>Cumplimiento: 40% (Crítico)</li>
+      </ul>
+    </div>
+
+    <!-- SECCIÓN: REINCIDENCIAS -->
+    <div class="acc">⚠️ ¿Qué son las Reincidencias? <span>▶</span></div>
+    <div class="content">
+      Las reincidencias identifican sucursales que presentan incumplimientos repetidos a lo largo de los meses.
+
+      <div class="example">
+Suc 220
+
+IE:
+Ene 0% | Feb 0% | Mar 0% | Abr 0% | May 0% | Jun 0%
+      </div>
+      Los porcentajes iguales o inferiores al 60% se resaltan automáticamente en color rojo para facilitar su identificación visual.
+    </div>
+
+    <!-- SECCIÓN: CONCLUSIONES -->
+    <div class="acc">📋 ¿Qué muestran las Conclusiones y Prioridades de Gestión? <span>▶</span></div>
+    <div class="content">
+      Cada zona incluye conclusiones específicas generadas a partir de sus propios resultados.
+      <br><br>
+      Incluyen:
+      <ul>
+        <li>Focos de atención inmediata</li>
+        <li>Principales riesgos operativos</li>
+        <li>Prioridades de gestión</li>
+        <li>Recomendaciones para el próximo período</li>
+      </ul>
+      Su objetivo es facilitar la toma de decisiones y orientar los esfuerzos de seguimiento del equipo de gestión.
+    </div>
+
+    <!-- SECCIÓN: FRECUENCIA -->
+    <div class="acc">📅 Frecuencia de actualización <span>▶</span></div>
+    <div class="content">
+      <ul>
+        <li><strong>Gerentes de Mantenimiento:</strong> actualización mensual.</li>
+        <li><strong>Operaciones:</strong> actualización trimestral (salvo requerimientos específicos).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       5. LÓGICA DE INTERACCIÓN (JAVASCRIPT)
+       ========================================== -->
+  <script>
+    document.querySelectorAll('.acc').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        const open = content.style.display === 'block';
+
+        content.style.display = open ? 'none' : 'block';
+        btn.querySelector('span').innerText = open ? '▶' : '▼';
+      });
+    });
+  </script>
+
+</body>
+</html>
